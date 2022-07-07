@@ -39,7 +39,7 @@ func handleGetI18nLang(c echo.Context) error {
 }
 
 // getI18nLangList returns the list of available i18n languages.
-func getI18nLangList(lang string, app *App) ([]i18nLang, error) {
+func getI18nLangList(_ string, app *App) ([]i18nLang, error) {
 	list, err := app.fs.Glob("/i18n/*.json")
 	if err != nil {
 		return nil, err
