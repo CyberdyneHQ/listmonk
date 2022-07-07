@@ -217,7 +217,7 @@ func validateUUID(next echo.HandlerFunc, params ...string) echo.HandlerFunc {
 
 // subscriberExists middleware checks if a subscriber exists given the UUID
 // param in a request.
-func subscriberExists(next echo.HandlerFunc, params ...string) echo.HandlerFunc {
+func subscriberExists(next echo.HandlerFunc, _ ...string) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		var (
 			app     = c.Get("app").(*App)
@@ -242,7 +242,7 @@ func subscriberExists(next echo.HandlerFunc, params ...string) echo.HandlerFunc 
 }
 
 // noIndex adds the HTTP header requesting robots to not crawl the page.
-func noIndex(next echo.HandlerFunc, params ...string) echo.HandlerFunc {
+func noIndex(next echo.HandlerFunc, _ ...string) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		c.Response().Header().Set("X-Robots-Tag", "noindex")
 		return next(c)
